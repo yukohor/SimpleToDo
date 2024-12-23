@@ -15,7 +15,7 @@ import model.Todo;
 
 public class TodoDAO {
 
-	private final String JDBC_URL = "jdbc:mysql://localhost/world?useSSL=false&allowPublicKeyRetrieval=true";
+	private final String JDBC_URL = "jdbc:mysql://localhost/simpletodos?useSSL=false&allowPublicKeyRetrieval=true";
 	private final String DB_USER = "root";
 	private final String DB_PASS = "52481001uk";
 	
@@ -28,7 +28,7 @@ public class TodoDAO {
 		}
 		//データーベース接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
-			String sql = "SELECT ID, TITLE, CONTENT,CREATEAT, UPDATEDAT FROM TODOS ORDER BY ID DESC";
+			String sql = "SELECT ID, TITLE, CONTENT,CREATED_AT, UPDATED_AT FROM TODOS ORDER BY ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			
 			ResultSet rs = pStmt.executeQuery();
@@ -37,8 +37,8 @@ public class TodoDAO {
 				int id = rs.getInt("ID");
 				String title = rs.getString("TITLE");
 				String content = rs.getString("CONTENT");
-				Timestamp createdAt = rs.getTimestamp("CRETATEDAT");
-				Timestamp updatedAt = rs.getTimestamp("UPDATEDAT");
+				Timestamp createdAt = rs.getTimestamp("CREATED_AT");
+				Timestamp updatedAt = rs.getTimestamp("UPDATED_AT");
 				Todo todo = new Todo(id,title,content,createdAt,updatedAt);
 				todoList.add(todo);
 			}
