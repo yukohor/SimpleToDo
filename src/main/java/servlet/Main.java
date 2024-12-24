@@ -37,9 +37,9 @@ public class Main extends HttpServlet {
 		if (text != null) {
 			//セッションスコープに保存されたtodoを取得
 			HttpSession session = request.getSession();
-			Todo UserContent = (Todo) session.getAttribute("userContent");
+			Todo  todoList= (Todo) session.getAttribute("userContent");
 
-			Todo todo = new Todo(UserContent.getId(), text, text, null, null);
+			Todo todo = new Todo();
 			PostTodoLogic postTodoLogic = new PostTodoLogic();
 			postTodoLogic.execute(todo);
 		} else {
@@ -52,7 +52,7 @@ public class Main extends HttpServlet {
 		List<Todo> todoList = getTodoListLogic.execute();
 		request.setAttribute("todoList", todoList);
 		//メイン画面にフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/main.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
 	}
 

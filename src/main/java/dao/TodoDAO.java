@@ -60,7 +60,7 @@ public class TodoDAO {
 	try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
 		
 		
-	String sql = "INSERT INTO todos (ID,TITLE,CONTENT,CREATEDAT,UPDATEDAT) VALUES(?,?,?,?,?)";
+	String sql = "INSERT INTO todos (ID,TITLE,CONTENT,CREATED_AT,UPDATED_AT) VALUES(?,?,?,?,?)";
      PreparedStatement pStmt = conn.prepareStatement(sql);
 
      pStmt.setInt(1, todo.getId());
