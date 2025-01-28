@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+
+<head>
+<meta charset="UTF-8">
+<title>Simple to do List</title>
+<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+	<div>
+	<h1>Simple To Do List</h1>
+	</div>
+	
+	<div>
+		<form action="create" method="post">
+		Todo<br>
+		<input type="text" name="text">
+		<input type="submit" value="create">
+		</form>
+	</div>
+	<br>
+	<br>
+	<div>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>ToDos</th>
+				<th>createdAt</th>
+				<th>edi/delete</th>
+				<th>checkBox</th>
+			</tr>
+			<tr>
+				<td>0</td><td>study english</td><td>20250127</td><td>
+					<form method="post" action="edit">
+						<a href="">Edit</a>
+					</form><form method="post" action="delete">
+						<a href="">Delete</a>
+					</form>
+				</td><td>
+					<form method="post">
+						<input type="submit" value="Done!">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
